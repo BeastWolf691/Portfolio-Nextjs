@@ -19,6 +19,7 @@ const config: Config = {
 				fontFamily: {
 					sans: 'var(--font-geist-sans)',
 					caption: 'var(--font-caption)',
+					mono: 'var(--font-geist-mono)'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

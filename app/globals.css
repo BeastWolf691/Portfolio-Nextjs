@@ -33,6 +33,7 @@ body {
     --destructive: 6 85% 50%;
     --destructive-foreground: 0 0% 100%;
     --ring: 210 19% 73%;
+    --radius: 0.5rem;
   }
 }
 
