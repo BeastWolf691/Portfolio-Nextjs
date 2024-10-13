@@ -8,8 +8,8 @@ const Code = ({className, ...props}: ComponentPropsWithoutRef<"span">) => {
 
 export const Hero = () => {
     return (
-        <Section className="flex max-lg:flex-col items-start gap-4">
-            <div className="flex-[2] flex flex-col gap-2">
+        <Section className="flex max-md:flex-col items-start gap-4">
+            <div className="flex-[3] w-full flex flex-col gap-2">
                 <h2 className="font-caption font-bold text-5xl text-primary">Steven RIVIERE</h2>
                 <h3 className="text-3xl font-caption">I&apos;m a Full Stack Developer</h3>
                 <p className="text-base">
@@ -18,9 +18,9 @@ export const Hero = () => {
                     <Code>M2I</Code></Link>.
                     </p>
             </div>
-            <div className="flex-1 max-md:m-auto ml-auto">
+            <div className="flex-[2] max-md:m-auto ml-auto">
                 <img src="https://media.licdn.com/dms/image/v2/C4D03AQEgklXiswua9Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1550703101490?e=1733961600&v=beta&t=51bf_8G5iaN8wqOIjpr7ZeZoqWotJiZ_nfvbZbXeCI8" 
-                className="w-full h-auto max-w-sm max-md:w-60" 
+                className="w-full h-auto max-w-xs max-md:w-56 rounded-full" 
                 alt="Steven's picture" />
             </div>
         </Section>
