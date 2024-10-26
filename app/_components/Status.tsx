@@ -27,6 +27,18 @@ export const Status = () => {
             <div className="flex-[2] w-full flex flex-col gap-4 hover:bg-accent/50 transition-colors">
                 <Card className="p-4 flex-1">
                     <p className="text-lg text-muted-foreground">Work</p>
+                    <div className="flex flex-col gap-4">
+                        {WORKS.map((project, index) => (
+                            <Work
+                                key={index}
+                                title={project.title}
+                                role={project.role}
+                                image={project.image}
+                                date={project.date}
+                                url={project.url} // Utilisation de l'URL dynamique
+                            />
+                        ))}
+                    </div>
                 </Card>
                 <Card className="p-4 flex-1">Contact me</Card>
             </div>
@@ -80,11 +92,11 @@ const SideProject = ({ title, description, Logo, url }: SideProjectProps) => {
 
 const WORKS: WorkProps[] = [/*corresponds aux expériences professionnelles*/
     {
-        title: "Portfolio",
-        role: "Full-stack developer",
-        image: "https://media.ldlc.com/r1600/ld/products/00/05/00/25/LD0005002514_2_0005530215_0005530265.jpg",
+        title: "Stage",
+        role: "Backend developer",
+        image: "https://media.licdn.com/dms/image/v2/D4D0BAQFgGxwDufob4w/company-logo_100_100/company-logo_100_100/0/1720802371819/ubya_logo?e=1738195200&v=beta&t=6O7I_puSg2270U4XPxR5Rp1Jxfyt0-7i5BsEi8PUghA",
         date: "2024 - Present",
-        url: "/" // URL fictive pour cet exemple
+        url: "https://ubya.ai/" // URL fictive pour cet exemple
     }
 ]
 
@@ -100,11 +112,11 @@ type WorkProps = {
 // Composant pour afficher chaque projet
 const Work = ({ title, role, image, date, url }: WorkProps) => {
     return (
-        <Link href={url} className="inline-flex items-center gap-4 rounded hover:bg-accent/50 transition-colors p-1 rounded">
+        <Link href={url} target="_blank" className="inline-flex items-center gap-4 rounded hover:bg-accent/50 transition-colors p-1 rounded">
             <img
                 src={image}
                 alt={title}
-                className="w-4 h-4 object-contain" />
+                className="w-12 h-12 rounded object-contain" />
             <div>
                 <p className="text-lg font-semibold">{title}</p>
                 <p className="text-sm text-muted-foreground">{role}</p>
