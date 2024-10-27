@@ -1,6 +1,5 @@
 import { Section } from "./Section";
 import { GithubIcon } from "./icons/GithubIcon";
-import {Button} from "../_components/button";
 import Link from "next/link";
 import { LinkedInIcon } from "./icons/LinkedInIcon";
 
