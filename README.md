@@ -38,3 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # Utilisation de component badge
 
 Faire npx shadcn add badge -> cela créer un badge.tsx dans components/ui
+
+# pour la BDD
+npm install mysql2

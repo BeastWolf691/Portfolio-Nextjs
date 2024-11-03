@@ -1,4 +1,5 @@
 import { Contact } from './_components/Contact';
+import { ContactForm } from './_components/ContactForm';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
 import { Hero } from './_components/Hero';
@@ -27,6 +28,10 @@ export default function Home() {
       <Spacing size={64} />
 
       <Contact />
+
+      <Spacing size={64} />
+
+      <ContactForm />
 
       <Spacing size={64} />
 
