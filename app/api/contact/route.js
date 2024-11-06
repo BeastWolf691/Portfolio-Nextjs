@@ -2,15 +2,15 @@
 import pool from '../../../lib/db'; // Assure-toi que le chemin d'importation est correct
 
 export async function POST(request) {
-    const { name, email, message } = await request.json();
+    const { firstname, lastname, email, message } = await request.json();
 
     // Valider les données ici si nécessaire
 
     try {
         // Insérer les données dans la base de données
         const result = await pool.query(
-            'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)',
-            [name, email, message]
+            'INSERT INTO contacts (firstname, lastname, email, message) VALUES (?, ?, ?, ?)',
+            [firstname, lastname, email, message]
         );
 
         // Répondre au client avec un message de succès
