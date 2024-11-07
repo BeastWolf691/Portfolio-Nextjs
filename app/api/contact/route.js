@@ -1,10 +1,8 @@
 // app/api/contact/route.js
-import pool from '../../../lib/db'; // Assure-toi que le chemin d'importation est correct
+import pool from '../../../lib/db';
 
 export async function POST(request) {
     const { firstname, lastname, email, message } = await request.json();
-
-    // Valider les données ici si nécessaire
 
     try {
         // Insérer les données dans la base de données

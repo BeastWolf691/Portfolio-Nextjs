@@ -19,7 +19,6 @@ export const ContactForm = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Envoyer les données
 
         try {
             const response = await fetch('/api/contact', {

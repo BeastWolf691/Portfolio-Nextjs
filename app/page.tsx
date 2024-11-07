@@ -1,5 +1,5 @@
 import { Contact } from './_components/Contact';
-import { ContactForm } from './_components/ContactForm';
+import { ContactForm } from './_components/FormSuggest';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
 import { Hero } from './_components/Hero';
