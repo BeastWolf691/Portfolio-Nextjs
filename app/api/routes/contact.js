@@ -1,4 +1,4 @@
-// app/api/contact/route.js
+// app/api/routes/contact.js
 import pool from '../../../lib/db';
 
 export async function POST(request) {

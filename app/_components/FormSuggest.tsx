@@ -1,6 +1,18 @@
 "use client";
 import React, { useState } from "react";
 
+//vérification adresse mail valide 
+const emailGood = (email: string) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+};
+
+//vérification des noms et prénoms
+const nameGood = (name: string) => {
+    const regex = /^[a-zA-ZÀ-ÿ\s-]+$/;
+    return regex.test(name);
+};
+
 export const ContactForm = () => {
     const [formData, setFormData] = useState({
         firstname: '',
@@ -9,16 +21,50 @@ export const ContactForm = () => {
         message: '',
     });
 
+    //on affiche les messages d'erreur
+    const [error, setError] = useState('');
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
+        setError('');
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // on vérifie si les champs sont valides
+        if (!formData.firstname || !formData.lastname || !formData.email || !formData.message) {
+            setError('Veuillez remplir tous les champs');
+            return;
+        }
+
+        // Vérification prénom
+        if (!nameGood(formData.firstname)) {
+            setError('Le prénom ne doit contenir que des lettres, espaces ou tirets.');
+            return;
+        }
+
+        // Vérification nom
+        if (!nameGood(formData.lastname)) {
+            setError('Le nom ne doit contenir que des lettres, espaces ou tirets.');
+            return;
+        }
+
+        // Vérification email
+        if (!emailGood(formData.email)) {
+            setError('Veuillez entrer une adresse email valide');
+            return; 
+        }
+
+        // Vérification message
+        if (formData.message.length < 10) {
+            setError('Votre message doit contenir au moins 10 caractères');
+            return;
+        }
 
         try {
             const response = await fetch('/api/contact', {
@@ -57,6 +103,7 @@ export const ContactForm = () => {
                     <br />
                     <span className="text-muted-foreground">Remplissez ce formulaire !</span>
                 </p>
+                {error && <p className="text-red-500 text-sm">{error}</p>}
                 <div>
                     <label htmlFor="firstname" className="text-muted-foreground block text-sm font-medium">
                         Prénom
